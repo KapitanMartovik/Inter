@@ -1,0 +1,26 @@
+import os
+
+a=input("как будет называться ваша история?: ")
+
+naz="echo no> "+a+".inter"
+os.system(naz)
+type=""
+ot=[]
+va=input('хотите ли вы добавить доп. информацию?')
+if va=='да' or va=='yes':
+	vava=input('введите её:')
+	os.system('echo '+vava+'>>'+a+".inter")
+
+while type!="quit":
+    metka=int(input("введите метку вашего абзаца: "))
+    type=input("введите абзац(или quit, если вы хотите выйти): ")
+    write=str(metka)+":"+type
+    cmd="echo "+write+">>"+a+".inter; "
+    ot.append(cmd)
+otvet=""
+for i in range(len(ot)):
+    otvet+=ot[i]
+otvet=otvet.replace("echo","")
+os.system("echo "+otvet)
+b=input("введите последовательность чтения меток(по цифрам через знак ':'): ")
+os.system("chcp 1251 & echo "+b+">>"+a+".inter")
